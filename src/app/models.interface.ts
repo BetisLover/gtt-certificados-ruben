@@ -6,3 +6,12 @@ export interface User{
     role: number;
 }
 
+export interface UserJira{
+    id: number;
+    user_id: number;
+    password: string;
+    url: string;
+    project: string;
+    component: string;
+}
+

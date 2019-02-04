@@ -1,2 +1,18 @@
 <app-navegacion-usuario></app-navegacion-usuario>
-<p>it lives jira</p>
+<form (submit)="guardar()">
+  <h1>Datos de la cuenta jira</h1>
+  <p>Nombre de usuario</p>
+  <input type="text" placeholder="nombre de usuario jira" [(ngModel)]="username" name="username"/>
+  <p>Password</p>
+  <input type="password" placeholder="password" [(ngModel)]="password" name="password"/>
+  <p>Url</p>
+  <input type="text" placeholder="url" name="url"/>
+  <p>Proyecto</p>
+  <input type="text" placeholder="proyecto" name="project">
+  <p>componente</p>
+  <input type="text" placeholder="componente" name="component">
+  <input class="confirmar" type="submit" value="Guardar cambios"/>
+  <div *ngIf="error">{{error | json}}</div>
+  <div *ngIf="valid">Guardado!</div>
+</form>
+
