@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
 import { VistaLoginComponent } from './vista-login/vista-login.component';
 import { VistaRegistroComponent } from './vista-registro/vista-registro.component';
-
+import { HttpClientModule } from '@angular/common/http';
 import { VistaCertificadosComponent } from './vista-certificados/vista-certificados.component';
 import { VistaJiraComponent } from './vista-jira/vista-jira.component';
 import { NavegacionUsuarioComponent } from './navegacion-usuario/navegacion-usuario.component';
+import { ApiService } from './api.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +26,12 @@ import { NavegacionUsuarioComponent } from './navegacion-usuario/navegacion-usua
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
