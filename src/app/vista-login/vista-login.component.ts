@@ -19,17 +19,22 @@ export class VistaLoginComponent {
     if (this.username.trim() !== '' && password.trim() !== '') {
       this.api.
         login(username.trim(), password.trim())
-        .then(() => {
-          // console.log('then',res);
-          this.error = undefined;
+        .then((response:any) => {
+          console.log(response);
+        if(response.status===400){
+          this.error= response.error;
+        }else{
           this.router.navigate(['/jira']);
-          // this.valid = res;
+        }
+        localStorage.setItem('id',response.id);
         })
         .catch(error => {
           console.log('cach', error);
 
           this.error = error;
         });
+        this.password='';
+        this.username='';
     }
   }
 

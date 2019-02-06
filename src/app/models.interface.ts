@@ -1,4 +1,4 @@
-export interface User{
+export interface User {
     id: number;
     username: string;
     password: string;
@@ -6,16 +6,17 @@ export interface User{
     role: number;
 }
 
-export interface UserJira{
+export interface UserJira {
     id: number;
     user_id: number;
+    username: string;
     password: string;
     url: string;
     project: string;
     component: string;
 }
 
-export interface Certificate{
+export interface Certificate {
     id: number;
     alias: string;
     entidad_emisora: string;
