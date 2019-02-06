@@ -41,15 +41,13 @@ export class ApiService {
 
   //obtiene la id del jira del usuario loggeado
   getJiraIDLoggedUser() {
-    return localStorage.getItem('id');
+    return localStorage.getItem('idJira');
   }
   //guardar user de jira en el back
-  saveJiraUser(user_id, username, password, url, project, component){
-    const body={user_id, username, password, url, project, component};
-    console.log(body);
-    return this.http.put('/api/jira/',body);
+  editJiraUser(userJira: UserJira){
+    return this.http.put('/api/jira/'+localStorage.getItem('idJira'),userJira).toPromise();
   }
-
+  //
 
 
 

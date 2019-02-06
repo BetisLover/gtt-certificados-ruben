@@ -14,9 +14,31 @@ export class VistaJiraComponent implements OnInit {
   url;
   project;
   component;
+  user_id;
+  userJira: UserJira;
 
 
   constructor(private api: ApiService) { }
+
+  guardar(){
+    //montamos el user de jira
+    this.userJira={
+      id: parseInt(localStorage.getItem('idJira')),
+      username:this.username,
+      password:this.password,
+      url:this.url,
+      project:this.project,
+      component:this.component,
+      user_id: parseInt(localStorage.getItem('id'))
+    }
+    console.log("user a subir a la bbdd "+this.userJira);
+    //llamamos a la api para subir al back
+    this.api.editJiraUser(this.userJira).then((res:any) =>{
+      console.log("llamando a la api "+ res);
+    })
+
+
+  }
 
   ngOnInit() {
     this.idJira = this.api.getIdLoggedUser();
