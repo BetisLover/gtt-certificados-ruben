@@ -26,7 +26,7 @@ export class ApiService {
 
   login(username, password) {
     const body = { username, password };
-    console.log(body);
+    console.log("user a loguear "+body.username+" pass:"+body.password);
     return this.http.post('/api/auth', body)
       .toPromise();
   }
@@ -39,6 +39,16 @@ export class ApiService {
     return localStorage.getItem('id');
   }
 
+  //obtiene la id del jira del usuario loggeado
+  getJiraIDLoggedUser() {
+    return localStorage.getItem('id');
+  }
+  //guardar user de jira en el back
+  saveJiraUser(user_id, username, password, url, project, component){
+    const body={user_id, username, password, url, project, component};
+    console.log(body);
+    return this.http.put('/api/jira/',body);
+  }
 
 
 

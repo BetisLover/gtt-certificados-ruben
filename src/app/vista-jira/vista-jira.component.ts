@@ -20,6 +20,7 @@ export class VistaJiraComponent implements OnInit {
 
   ngOnInit() {
     this.idJira = this.api.getIdLoggedUser();
+    console.log("id de usuario a cargar el jira"+this.idJira);
 
     this.api.getUserJiraData().then((res: any) => {
       if (res !== null) {
@@ -28,6 +29,9 @@ export class VistaJiraComponent implements OnInit {
         this.url = res.url;
         this.project = res.project;
         this.component = res.component;
+
+        console.log("id jira a guardar: "+res.id);
+        localStorage.setItem('idJira',res.id);
       }
 
     });

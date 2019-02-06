@@ -23,10 +23,14 @@ export class VistaLoginComponent {
           console.log(response);
         if(response.status===400){
           this.error= response.error;
+          this.username='';
+          this.password='';
         }else{
           this.router.navigate(['/jira']);
+        console.log("id a guardar: "+response.user_id);
+        localStorage.setItem('id',response.user_id);
         }
-        localStorage.setItem('id',response.id);
+        
         })
         .catch(error => {
           console.log('cach', error);
