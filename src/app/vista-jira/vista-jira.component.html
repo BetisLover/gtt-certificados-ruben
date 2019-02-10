@@ -1,5 +1,5 @@
 <app-navegacion-usuario></app-navegacion-usuario>
-<form (submit)="guardar()">
+<form (submit)="editarOGuardar()">
   <h1>Datos de la cuenta jira</h1>
   <p>Nombre de usuario</p>
   <input type="text" placeholder="nombre de usuario jira" [(ngModel)]="username" name="username" />
@@ -11,6 +11,8 @@
   <input type="text" placeholder="proyecto" [(ngModel)]="project" name="project">
   <p>componente</p>
   <input type="text" placeholder="componente" [(ngModel)]="component" name="component">
+  <p>Issue</p>
+  <input type="text" placeholder="issue" [(ngModel)]="issue" name="issue">
   <input class="confirmar" type="submit" value="Guardar cambios" />
   <div *ngIf="error">{{error | json}}</div>
   <div *ngIf="valid">Guardado!</div>

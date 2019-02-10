@@ -1,0 +1,22 @@
+<app-navegacion-usuario></app-navegacion-usuario>
+<div class="contenedor">
+    <form class="formularioCert">
+        <input type="text" name="alias" placeholder="Alias" [(ngModel)]="alias">
+
+        <input type="password" name="pass" placeholder="Password" [(ngModel)]="password">
+
+        <input type="text" name="idorga" placeholder="Cliente / ID_Orga" [(ngModel)]="idorga">
+
+        <input type="text" name="contact" placeholder="E-mail Contacto" [(ngModel)]="contact">
+
+        <input type="text" name="repository" placeholder="Repositorio" [(ngModel)]="repository">
+
+        <textarea type="text" name="integrations" placeholder="Integraciones" [(ngModel)]="integrations"></textarea>
+
+        <textarea type="text" name="observations" placeholder="Observaciones" [(ngModel)]="observations"></textarea>
+
+        <input (change)="obtainCert($event)" type="file" accept=".p12" (change)="changeListener($event)">
+
+    </form>
+
+</div>

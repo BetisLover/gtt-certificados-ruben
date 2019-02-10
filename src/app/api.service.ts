@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User, UserJira } from './models.interface';
+import { User, UserJira, Certificate } from './models.interface';
 import { HttpHeaders, HttpClientModule } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -43,12 +44,21 @@ export class ApiService {
   getJiraIDLoggedUser() {
     return localStorage.getItem('idJira');
   }
-  //guardar user de jira en el back
+  //guardar user editado de jira en el back 
   editJiraUser(userJira: UserJira){
     return this.http.put('/api/jira/'+localStorage.getItem('idJira'),userJira).toPromise();
   }
-  //
+  //crear user de jira en el back
+  addJiraUser(userjira){
+    return this.http.post('/api/jira/',userjira).toPromise();
+  }
 
+  //cargar certificado en back
+  addCertificate(cert: Certificate, ficheroBase64: any)
+  {
+    cert.fichero_base_64 = ficheroBase64;
+    return this.http.post('/api/certificates',cert).toPromise();
+  }
 
 
   constructor(private http: HttpClient) { }

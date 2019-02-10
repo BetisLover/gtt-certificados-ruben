@@ -14,6 +14,7 @@ export interface UserJira {
     url: string;
     project: string;
     component: string;
+    issue: string;
 }
 
 export interface Certificate {
@@ -22,14 +23,15 @@ export interface Certificate {
     entidad_emisora: string;
     numero_de_serie: string;
     subject: string;
-    caducidad: any;
+    caducidad: Date;
+    password: string;
     id_orga: string;
     nombre_cliente: string;
     contacto_renovacion: string;
     repositorio: string;
     observaciones: string;
     integration_list: string;
-    user_id: User;
+    fichero_base_64: string;
 
 }
 
