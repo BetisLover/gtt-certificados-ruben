@@ -3,21 +3,22 @@ div {
     padding: 1em;
     display: flex;
     justify-content: center;
-    background: linear-gradient(to bottom, white, grey);
+    background: whitesmoke;
 
     border-radius: 10px 10px 10px 10px;
--moz-border-radius: 10px 10px 10px 10px;
--webkit-border-radius: 10px 10px 10px 10px;
-border: 0px solid #000000;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
    
     a {
-      color: black;
+      color: #98CB00;
+      font-weight: bold;
       margin: 1em;
       text-decoration: none;
     }
     .active {
-      color: green;
-      border-bottom: solid 1px green;
+      color: red;
+      border-bottom: solid 1px red;
     }
   }
 

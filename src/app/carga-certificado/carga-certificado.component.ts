@@ -10,7 +10,7 @@ import { Certificate } from '../models.interface';
 export class CargaCertificadoComponent implements OnInit {
   alias;
   password;
-  idorga;
+  idOrga;
   repository;
   integrations;
   observations;
@@ -29,11 +29,11 @@ export class CargaCertificadoComponent implements OnInit {
       subject: "",
       caducidad: new Date(),
       password: this.password,
-      id_orga: this.idorga,
-      nombre_cliente: this.idorga,
+      id_orga: this.idOrga,
+      nombre_cliente: this.idOrga,
       integration_list: this.integrations,
       observaciones: this.observations,
-      fichero_base_64: "",
+      ficheroBase64:"",
       repositorio: this.repository,
       contacto_renovacion: this.contact,
 
@@ -45,8 +45,14 @@ export class CargaCertificadoComponent implements OnInit {
 
     reader.onload = function () {
       arrayBuffer = reader.result;
-      var arrayBuffer2 = arrayBuffer.split(',');
-      api2.addCertificate(arrayBuffer2[1], certificado).then(console.log).catch(console.error);
+      //console.log(arrayBuffer);
+      var arrayBuffer2 = arrayBuffer.split(',')[1];
+      //console.log(certificado);
+      certificado.ficheroBase64 = arrayBuffer2;
+      console.log(certificado);
+      //console.log(arrayBuffer2);
+      api2.addCertificate(certificado, arrayBuffer2)
+      .then(console.log).catch(console.error);
 
     };
     reader.readAsDataURL(event.target.files[0]);

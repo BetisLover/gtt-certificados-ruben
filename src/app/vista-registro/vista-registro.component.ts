@@ -12,13 +12,14 @@ export class VistaRegistroComponent  {
   email: string;
   error: any;
   valid: any;
+  role: any;
   constructor(private api: ApiService, private router: Router) { }
 
   register(){
-    const {username, password, email} = this;
+    const {username, password, email, role} = this;
     if(this.username.trim() !== '' && password.trim() && email.trim() !== ''){
       this.api.
-      register(username.trim(), password.trim(), email.trim())
+      register(username.trim(), password.trim(), email.trim(), this.role())
       .then(res =>{
         console.log(res);
         

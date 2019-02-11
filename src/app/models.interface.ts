@@ -31,7 +31,7 @@ export interface Certificate {
     repositorio: string;
     observaciones: string;
     integration_list: string;
-    fichero_base_64: string;
+    ficheroBase64: any;
 
 }
 

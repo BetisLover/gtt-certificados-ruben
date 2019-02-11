@@ -17,8 +17,8 @@ export class ApiService {
   dataUser: any;
 
   //control del registro por el backend
-  register(username, password, email) {
-    const body = { username, password, email };
+  register(username, password, email, role) {
+    const body = { username, password, email, role };
     console.log(body);
     return this.http.post('/api/users', body).toPromise();
 
@@ -56,8 +56,10 @@ export class ApiService {
   //cargar certificado en back
   addCertificate(cert: Certificate, ficheroBase64: any)
   {
-    cert.fichero_base_64 = ficheroBase64;
-    return this.http.post('/api/certificates',cert).toPromise();
+    console.log('Estoy en apiservice');
+    //cert.fichero_base_64 = ficheroBase64;
+    console.log(cert);
+    return this.http.post('/api/certificates/',cert).toPromise();
   }
 
 

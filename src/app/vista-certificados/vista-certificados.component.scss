@@ -1,9 +1,15 @@
-.container{
-    display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
-    grid-template-rows: 20% 20% 20% 20% 20%;
-    padding: 10px;
-   
+div{
+    border:1px solid black;
+}
+.encabezado{
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+   background:whitesmoke;
+   margin: 15px;
 }
 h1{
     text-align: center;
