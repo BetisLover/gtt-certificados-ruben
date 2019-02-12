@@ -2,17 +2,17 @@
 <input type="text" placeholder="introduce texto aqui">
 <div class="contenedor">
     <div class="encabezado">
-        <div>
+        <div (click)="ordenarPorAlias()">
           Alias
         </div>
     
-        <div class="subject">
+        <div (click)="ordenarPorSubject()" class="subject">
           Subject
         </div>
-        <div>
+        <div (click)="ordenarPorFecha()">
           Fecha Caducidad
         </div>
-        <div>
+        <div (click)="ordenarPorOrganizacion()">
           Id Organización
         </div>
         <div>

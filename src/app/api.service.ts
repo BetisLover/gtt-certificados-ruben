@@ -75,7 +75,7 @@ export class ApiService {
 
   //comprobamos si el usuario tiene permisos, y en caso contrario lo redireccionamos a la vista principal
   comprobarRolUsuario(){
-    if(localStorage.getItem('role')==='1'){
+    if(localStorage.getItem('role')==="1"){
       alert('permiso denegado');
       this.router.navigate(['/certificados']);
     }

@@ -8,7 +8,7 @@ import { Certificate } from '../models.interface';
   styleUrls: ['./vista-certificados.component.scss']
 })
 export class VistaCertificadosComponent implements OnInit {
-  certificateList;
+  certificateList:Array<Certificate>;
 
   constructor(private api: ApiService) { }
 
@@ -49,5 +49,20 @@ export class VistaCertificadosComponent implements OnInit {
      document.body.appendChild(aux_document);
      aux_document.click()
 
+  }
+
+  //metodos de ordenación de certificados
+  ordenarPorAlias(){
+    this.certificateList.sort((a,b)=>{
+      if(a.alias >b.alias){
+        return 1;
+      } 
+      else if(a.alias === b.alias){
+        return 0;
+      }else{
+        return -1;
+      }
+      
+    })
   }
 }
