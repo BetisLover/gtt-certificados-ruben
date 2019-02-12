@@ -18,10 +18,11 @@ export class VistaJiraComponent implements OnInit {
   issue;
   userJira: any;
   userJira2: UserJira;
-  editar = false;
+  editar;
+  role:string;
 
   editarOGuardar() {
-    if (this.editar) {
+    if (this.editar ===true) {
       this.editarUser();
     } else {
       this.guardarUser();
@@ -33,34 +34,37 @@ export class VistaJiraComponent implements OnInit {
   constructor(private api: ApiService) { }
   //metodo que guarda el user si no hay
   guardarUser() {
-    this.userJira = {
+    if(this.username.equals('') || this.password.equals('')){
+      alert('error, hay campos sin rellenar');
+    }else{
+      this.userJira = {
     
-      user_id: parseInt(localStorage.getItem('id')),
-      username: this.username,
-      password: this.password,
-      url: this.url,
-      project: this.project,
-      issue: this.issue,
-      component: this.component
-  
+        user_id: parseInt(localStorage.getItem('id')),
+        username: this.username,
+        password: this.password,
+        url: this.url,
+        project: "SIT",
+        issue: "Explotacion",
+        component: "Arquitectura"
+    
+      }
+      console.log("estoy en el (post) ");
+      console.log(this.userJira);
+      this.api.addJiraUser(this.userJira)
+      .then((res:any)=>{
+        console.log(res);
+        this.editar = true;
+      }).catch(err=>{
+        console.log("estoy en el catch ");
+        console.log(err);
+      })
     }
-    console.log("estoy en el (post) ");
-    console.log(this.userJira);
-    this.api.addJiraUser(this.userJira)
-    .then((res:any)=>{
-      console.log(res);
-      this.editar = true;
-    }).catch(err=>{
-      console.log("estoy en el catch ");
-      console.log(err);
-    })
 
   }
   //metodo que edita el user de jira
   editarUser() {
     //montamos el user de jira
     this.userJira = {
-      id: parseInt(localStorage.getItem('idJira')),
       username: this.username,
       password: this.password,
       url: this.url,
@@ -70,6 +74,7 @@ export class VistaJiraComponent implements OnInit {
       user_id: localStorage.getItem('id')
     }
     console.log("user a subir a la bbdd (put) " + this.userJira);
+    this.editar=true;
     //llamamos a la api para subir al back
     this.api.editJiraUser(this.userJira).then((res: any) => {
       console.log("llamando a la api " + res);
@@ -78,9 +83,19 @@ export class VistaJiraComponent implements OnInit {
 
   }
 
+  obtenerInfoUserLoggeado(){
+    this.api.getUserLoggedInfo(localStorage.getItem('id')).then((res:any)=>{
+      this.username =res.username;
+      this.role= res.role;
+    }).catch(error =>{
+      console.log(error)
+    })
+  }
+
   ngOnInit() {
-    this.idJira = this.api.getIdLoggedUser();
-    console.log("id de usuario a cargar el jira" + this.idJira);
+    
+    this.api.comprobarLogin();
+    this.obtenerInfoUserLoggeado();
 
     this.api.getUserJiraData().then((res: any) => {
       if (res !== null) {

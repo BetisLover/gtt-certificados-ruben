@@ -6,7 +6,7 @@ import { ApiService } from '../api.service';
   templateUrl: './vista-registro.component.html',
   styleUrls: ['./vista-registro.component.scss']
 })
-export class VistaRegistroComponent  {
+export class VistaRegistroComponent implements OnInit {
   username: string;
   password: string;
   email: string;
@@ -14,6 +14,11 @@ export class VistaRegistroComponent  {
   valid: any;
   role= 0;
   constructor(private api: ApiService, private router: Router) { }
+
+  ngOnInit(){
+    this.api.comprobarLogin();
+    this.api.comprobarRolUsuario();
+  }
 
   register(){
     const {username, password, email, role} = this;

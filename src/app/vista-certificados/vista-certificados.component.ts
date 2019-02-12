@@ -32,5 +32,22 @@ export class VistaCertificadosComponent implements OnInit {
   //descarga de certificado
   descargarCertificado(certificado:Certificate){
     let formatoCertificado= certificado.nombre_archivo.split('.')[1];
+    var contentType = "file/"+formatoCertificado;
+     var byteCharacters = atob(certificado.ficheroBase64);
+     var byteNumbers = new Array(byteCharacters.length);
+
+     for (var i = 0; i < byteCharacters.length; i++) {
+       byteNumbers[i] = byteCharacters.charCodeAt(i);
+     }
+     var byteArray = new Uint8Array(byteNumbers);
+     var blob = new Blob([byteArray], {
+       type: contentType
+     });
+     var aux_document = document.createElement("a");
+     aux_document.href = URL.createObjectURL(blob);
+     aux_document.download = `${certificado.nombre_archivo}`;
+     document.body.appendChild(aux_document);
+     aux_document.click()
+
   }
 }

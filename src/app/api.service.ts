@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User, UserJira, Certificate } from './models.interface';
 import { HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -34,11 +35,11 @@ export class ApiService {
   }
   //cargar user de jira loggeado
   getUserJiraData() {
-    return this.http.get('/api/jira/' + localStorage.getItem('id')).toPromise();
+    return this.http.get('/api/jira/'+ localStorage.getItem('id'),this.options).toPromise();
   }
   //obtener la id del user loggeado
-  getIdLoggedUser() {
-    return localStorage.getItem('id');
+  getUserLoggedInfo(iduser) {
+    return this.http.get('/api/users/'+iduser).toPromise();
   }
 
   //obtiene la id del jira del usuario loggeado
@@ -50,8 +51,8 @@ export class ApiService {
     return this.http.put('/api/jira/'+localStorage.getItem('idJira'),userJira).toPromise();
   }
   //crear user de jira en el back
-  addJiraUser(userjira){
-    return this.http.post('/api/jira/',userjira).toPromise();
+  addJiraUser(userjira: UserJira){
+    return this.http.post('/api/jira/',userjira, this.options).toPromise();
   }
 
   //cargar certificado en back
@@ -72,6 +73,26 @@ export class ApiService {
     return this.http.get('/api/certificates/'+id,this.options).toPromise();
   }
 
+  //comprobamos si el usuario tiene permisos, y en caso contrario lo redireccionamos a la vista principal
+  comprobarRolUsuario(){
+    if(localStorage.getItem('role')==='1'){
+      alert('permiso denegado');
+      this.router.navigate(['/certificados']);
+    }
+  }
+  //comprobamos mediante el jsonWebToken si el usuario está logueado y si no le devolvemos al login
+  comprobarLogin(){
+    if(!localStorage.getItem('jwt')){
+      alert('permiso denegado');
+      this.router.navigate(['/login']);
+    }
+  }
 
-  constructor(private http: HttpClient) { }
+  //eliminamos todas las variables de localstorage al cerrar sesión
+  cerrarSesion(){
+    this.jwt=null;
+    localStorage.clear();
+  }
+
+  constructor(private http: HttpClient, private router: Router) { }
 }

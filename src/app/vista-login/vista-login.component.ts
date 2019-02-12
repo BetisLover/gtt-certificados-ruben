@@ -7,12 +7,15 @@ import { ApiService } from '../api.service';
   templateUrl: './vista-login.component.html',
   styleUrls: ['./vista-login.component.scss']
 })
-export class VistaLoginComponent {
+export class VistaLoginComponent implements OnInit{
   username: string;
   password: string;
   error: any;
   valid: any;
   constructor(private api: ApiService, private router: Router) { }
+  ngOnInit(){
+    this.api.comprobarLogin();
+  }
 
   login() {
     const { username, password } = this;
