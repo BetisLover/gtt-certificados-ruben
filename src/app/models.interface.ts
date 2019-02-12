@@ -3,7 +3,7 @@ export interface User {
     username: string;
     password: string;
     email: string;
-    role: number;
+    role: any;
 }
 
 export interface UserJira {
