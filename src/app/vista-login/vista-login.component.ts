@@ -26,7 +26,7 @@ export class VistaLoginComponent {
           this.username='';
           this.password='';
         }else{
-          this.router.navigate(['/jira']);
+          this.router.navigate(['/certificados']);
         console.log("id a guardar: "+response.user_id);
         localStorage.setItem('id',response.user_id);
         localStorage.setItem('jwt', response.jwt);

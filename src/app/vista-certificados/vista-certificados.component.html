@@ -1,34 +1,43 @@
 <app-navegacion-usuario></app-navegacion-usuario>
 <input type="text" placeholder="introduce texto aqui">
-<div class="encabezado">
-  <div class="alias">
-    Alias
+<div class="contenedor">
+  <div class="encabezado">
+    <div>
+      Alias
+    </div>
+
+    <div class="subject">
+      Subject
+    </div>
+    <div>
+      Fecha Caducidad
+    </div>
+    <div>
+      Id Organización
+    </div>
+    <div>
+      Opciones
+    </div>
   </div>
-  <div class="entidad">
-    Entidad Emisora
+  <div class ="contenedorBoard">
+  <div class="boardCertificados" *ngFor="let certificado of certificateList">
+    <div>
+      {{certificado.alias}}
+    </div>
+    <div id="subject">
+      {{certificado.subject}}
+    </div>
+    <div>
+      {{certificado.caducidad}}
+    </div>
+    <div>
+      {{certificado.id_orga}}
+    </div>
+    <div class="opciones">
+      <button>❌</button>
+    </div>
+
+
   </div>
-  <div class="serial_number">
-    Número de serie
-  </div>
-  <div class="subject">
-    Subject
-  </div>
-  <div class="Caducidad">
-    Fecha de caducidad
-  </div>
-  <div class="id_orga">
-    Id Org.
-  </div>
-  <div class="nom_cliente">
-    Cliente
-  </div>
-  <div class="integraciones">
-    Lista integraciones
-  </div>
-  <div class="repositorio">
-    Repositorio
-  </div>
-  <div class="observaciones">
-    Observaciones
-  </div>
+</div>
 </div>

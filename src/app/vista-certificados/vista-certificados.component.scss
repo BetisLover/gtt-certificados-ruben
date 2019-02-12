@@ -1,23 +1,36 @@
-div{
-    border:1px solid black;
-}
-.encabezado{
+.contenedor{
+  
     
-    display: flex;
-    flex-wrap: wrap;
+    
+
+    .encabezado{
+        margin: 4vh;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    flex-direction: row;
-   background:whitesmoke;
-   margin: 15px;
-}
-h1{
-    text-align: center;
-}
-.certificado{
-    background-color:gray; 
-    grid-column-start: 2;
-    grid-column-end: 5;
-   padding:10px;
-   
-}
+      
+        div{
+            border: 1px solid black;
+        }
+            
+        }
+        
+
+    }
+    .contenedorBoard{
+        overflow: auto;
+    }
+    .boardCertificados{
+        display: grid;
+        margin:4vh;
+        max-height: 400px;
+        
+        grid-template-columns: repeat(5,1fr);
+        div{
+            height: 3em;
+            border: 1px solid green;
+            background: white;
+            border: 1px solid black; 
+        }
+    }

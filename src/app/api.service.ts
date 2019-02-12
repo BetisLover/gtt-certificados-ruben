@@ -15,6 +15,7 @@ export class ApiService {
 
   jwt: any;
   dataUser: any;
+  options = { headers: { Authorization: `${this.jwt}` } };
 
   //control del registro por el backend
   register(username, password, email, role) {
@@ -60,6 +61,11 @@ export class ApiService {
     //cert.fichero_base_64 = ficheroBase64;
     console.log(cert);
     return this.http.post('/api/certificates/',cert).toPromise();
+  }
+
+  //recibir los certificados para mostrarlos en el board
+  getCertificates(){
+    return this.http.get('/api/certificates/',this.options).toPromise();
   }
 
 
