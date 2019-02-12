@@ -53,11 +53,25 @@ export class VistaCertificadosComponent implements OnInit {
 
   //metodos de ordenación de certificados
   ordenarPorAlias(){
-    this.certificateList.sort((a,b)=>{
-      if(a.alias >b.alias){
+    this.certificateList.sort((certa,certb)=>{
+      if(certa.alias >certb.alias){
         return 1;
       } 
-      else if(a.alias === b.alias){
+      else if(certa.alias === certb.alias){
+        return 0;
+      }else{
+        return -1;
+      }
+      
+    })
+  }
+
+  ordenarPorFecha(){
+    this.certificateList.sort((certa,certb)=>{
+      if(certa.caducidad >certb.caducidad){
+        return 1;
+      } 
+      else if(certa.caducidad === certb.caducidad){
         return 0;
       }else{
         return -1;
