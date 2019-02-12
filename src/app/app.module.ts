@@ -12,6 +12,7 @@ import { VistaJiraComponent } from './vista-jira/vista-jira.component';
 import { NavegacionUsuarioComponent } from './navegacion-usuario/navegacion-usuario.component';
 import { ApiService } from './api.service';
 import { CargaCertificadoComponent } from './carga-certificado/carga-certificado.component';
+import { DetallesCertificadoComponent } from './detalles-certificado/detalles-certificado.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CargaCertificadoComponent } from './carga-certificado/carga-certificado
     VistaCertificadosComponent,
     VistaJiraComponent,
     NavegacionUsuarioComponent,
-    CargaCertificadoComponent
+    CargaCertificadoComponent,
+    DetallesCertificadoComponent
   ],
   imports: [
     BrowserModule,
