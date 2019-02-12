@@ -65,7 +65,11 @@ export class ApiService {
 
   //recibir los certificados para mostrarlos en el board
   getCertificates(){
-    return this.http.get('/api/certificates/',this.options).toPromise();
+    return this.http.get('/api/certificates/').toPromise();
+  }
+ //recibir los datos de bbdd para mostrar certificado en detalle
+  getDetailsCertificate(cert: Certificate){
+    return this.http.get('/api/certificates/'+cert.id,this.options).toPromise();
   }
 
 

@@ -1,0 +1,17 @@
+h2{
+    text-align: center;
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+input{
+   
+    border-bottom: 1px solid black;
+    margin: 2em 0;
+    max-width: 150px;
+    color: black;
+}

@@ -5,6 +5,7 @@ import { VistaLoginComponent } from './vista-login/vista-login.component'
 import { VistaCertificadosComponent } from './vista-certificados/vista-certificados.component';
 import { VistaJiraComponent } from './vista-jira/vista-jira.component';
 import { CargaCertificadoComponent } from './carga-certificado/carga-certificado.component';
+import { DetallesCertificadoComponent } from './detalles-certificado/detalles-certificado.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'cargacert',
     component: CargaCertificadoComponent,
+  },
+
+  {
+    path: 'detallescert/:id',
+    component: DetallesCertificadoComponent,
   },
 
   { path: '**', redirectTo: 'login', pathMatch: 'full', },
