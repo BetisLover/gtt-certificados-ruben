@@ -9,12 +9,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detalles-certificado.component.scss']
 })
 export class DetallesCertificadoComponent implements OnInit {
-  id;
+  id: number;
   certificado: Certificate;
   constructor(public api: ApiService, private ruta: ActivatedRoute) { }
   //cargamos el certificado deseado
   ngOnInit() {
     this.id = Number(this.ruta.snapshot.paramMap.get('id'));
+    console.log("estoy en el ts de detalles");
     console.log(this.id);
     this.api.getDetailsCertificate(this.id).then((res: Certificate) => {
       this.certificado = res;

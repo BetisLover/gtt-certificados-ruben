@@ -68,8 +68,8 @@ export class ApiService {
     return this.http.get('/api/certificates/').toPromise();
   }
  //recibir los datos de bbdd para mostrar certificado en detalle
-  getDetailsCertificate(cert: Certificate){
-    return this.http.get('/api/certificates/'+cert.id,this.options).toPromise();
+  getDetailsCertificate(id: number){
+    return this.http.get('/api/certificates/'+id,this.options).toPromise();
   }
 
 
