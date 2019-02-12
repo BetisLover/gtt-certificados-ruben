@@ -36,6 +36,8 @@ export class CargaCertificadoComponent implements OnInit {
       ficheroBase64:"",
       repositorio: this.repository,
       contacto_renovacion: this.contact,
+      marcar_borrado: false,
+      nombre_archivo: event.target.value.split("\\")[2]
 
     }
 

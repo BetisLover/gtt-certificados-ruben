@@ -1,31 +1,33 @@
 <app-navegacion-usuario></app-navegacion-usuario>
 <input type="text" placeholder="introduce texto aqui">
 <div class="contenedor">
-  <div class="encabezado">
-    <div>
-      Alias
-    </div>
+    <div class="encabezado">
+        <div>
+          Alias
+        </div>
+    
+        <div class="subject">
+          Subject
+        </div>
+        <div>
+          Fecha Caducidad
+        </div>
+        <div>
+          Id Organización
+        </div>
+        <div>
+          Opciones
+        </div>
+      </div>
+  <div class ="contenedorBoard" >
+      
 
-    <div class="subject">
-      Subject
-    </div>
-    <div>
-      Fecha Caducidad
-    </div>
-    <div>
-      Id Organización
-    </div>
-    <div>
-      Opciones
-    </div>
-  </div>
-  <div class ="contenedorBoard">
-  <div class="boardCertificados" *ngFor="let certificado of certificateList">
+  <div class="boardCertificados" *ngFor="let certificado of certificateList" >
     <div>
       {{certificado.alias}}
     </div>
     <div id="subject">
-      {{certificado.subject}}
+      {{certificado.subject.split('CN=')[1].split(',')[0]}}
     </div>
     <div>
       {{certificado.caducidad}}
@@ -34,7 +36,10 @@
       {{certificado.id_orga}}
     </div>
     <div class="opciones">
-      <button>❌</button>
+      <i class="material-icons" (click)="deleteCert()">delete</i>
+      <i class="material-icons" (click)="descargarCertificado(certificado)">save</i>
+      <i class="material-icons">help</i>
+      
     </div>
 
 

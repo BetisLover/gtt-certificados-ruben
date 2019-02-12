@@ -16,12 +16,21 @@ export class VistaCertificadosComponent implements OnInit {
 
     this.obtenerCertificados();
   }
+  deleteCert(certificado){
+    certificado.marcar_borrado=!certificado.marcar_borrado;
+  }
 
+  //cargamos los certificados en bbdd cada vez que accedemos a la vista
   obtenerCertificados(){
     this.api.getCertificates().then((res:any)=>{
       this.certificateList=res;
     }).catch((err:any)=>{
       console.log(err);
     });
+  }
+
+  //descarga de certificado
+  descargarCertificado(certificado:Certificate){
+    let formatoCertificado= certificado.nombre_archivo.split('.')[1];
   }
 }

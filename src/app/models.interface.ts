@@ -32,6 +32,8 @@ export interface Certificate {
     observaciones: string;
     integration_list: string;
     ficheroBase64: any;
+    nombre_archivo: string;
+    marcar_borrado: boolean;
 
 }
 
