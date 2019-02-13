@@ -11,7 +11,7 @@ export class NavegacionUsuarioComponent implements OnInit {
   constructor(public api:ApiService) { }
 
   ngOnInit() {
-   this.isAdmin = this.api.comprobarRol();
+   
   }
 
   logout(){
