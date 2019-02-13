@@ -10,11 +10,13 @@ import { ApiService } from '../api.service';
 export class VistaLoginComponent implements OnInit{
   username: string;
   password: string;
+  role: string;
   error: any;
   valid: any;
   constructor(private api: ApiService, private router: Router) { }
   ngOnInit(){
     this.api.comprobarLogin();
+    console.log(localStorage.getItem('rol'));
   }
 
   login() {
@@ -33,7 +35,8 @@ export class VistaLoginComponent implements OnInit{
         console.log("id a guardar: "+response.user_id);
         localStorage.setItem('id',response.user_id);
         localStorage.setItem('jwt', response.jwt);
-        localStorage.setItem('rol',response.role);
+        localStorage.setItem('rol',response.role.toString());
+        console.log("rol de usuario: "+localStorage.getItem('rol'));
         }
         
         })

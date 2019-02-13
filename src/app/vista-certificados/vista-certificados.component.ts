@@ -15,6 +15,7 @@ export class VistaCertificadosComponent implements OnInit {
   ngOnInit() {
 
     this.obtenerCertificados();
+  
   }
   deleteCert(certificado){
     certificado.marcar_borrado=!certificado.marcar_borrado;
@@ -72,6 +73,34 @@ export class VistaCertificadosComponent implements OnInit {
         return 1;
       } 
       else if(certa.caducidad === certb.caducidad){
+        return 0;
+      }else{
+        return -1;
+      }
+      
+    })
+  }
+
+  ordenarPorSubject(){
+    this.certificateList.sort((certa,certb)=>{
+      if(certa.subject >certb.subject){
+        return 1;
+      } 
+      else if(certa.subject === certb.subject){
+        return 0;
+      }else{
+        return -1;
+      }
+      
+    })
+  }
+
+  ordenarPorOrganizacion(){
+    this.certificateList.sort((certa,certb)=>{
+      if(certa.id_orga >certb.id_orga){
+        return 1;
+      } 
+      else if(certa.id_orga === certb.id_orga){
         return 0;
       }else{
         return -1;

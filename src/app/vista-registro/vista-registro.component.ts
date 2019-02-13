@@ -18,6 +18,8 @@ export class VistaRegistroComponent implements OnInit {
   ngOnInit(){
     this.api.comprobarLogin();
     this.api.comprobarRolUsuario();
+    //console.log(localStorage.getItem('rol'));
+   
   }
 
   register(){
