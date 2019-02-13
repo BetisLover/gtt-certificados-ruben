@@ -48,7 +48,7 @@ export class ApiService {
   }
   //guardar user editado de jira en el back 
   editJiraUser(userJira: UserJira){
-    console.log(userJira);
+   // console.log(userJira);
     return this.http.put('/api/jira/'+localStorage.getItem('idJira'),userJira).toPromise();
   }
   //crear user de jira en el back
