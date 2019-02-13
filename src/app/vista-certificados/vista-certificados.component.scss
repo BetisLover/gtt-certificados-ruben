@@ -6,7 +6,7 @@
     
 
     .encabezado{
-        margin: 4vh;
+        margin: 2vh;
     display: grid;
     grid-template-columns: repeat(5,1fr);
     justify-content: center;
@@ -25,7 +25,7 @@
     }
     .boardCertificados{
         display: grid;
-        margin:4vh;
+        margin:2vh;
         max-height: 500px;
         
         grid-template-columns: repeat(5,1fr);

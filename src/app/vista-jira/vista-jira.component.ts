@@ -16,15 +16,17 @@ export class VistaJiraComponent implements OnInit {
   component;
   user_id;
   issue;
-  userJira: any;
+  userJira: UserJira;
   userJira2: UserJira;
   editar;
   role:string;
 
   editarOGuardar() {
-    if (this.editar ===true) {
+    if (this.editar != true) {
+      console.log("entro al put");
       this.editarUser();
     } else {
+      console.log("entro al post");
       this.guardarUser();
       
     }
@@ -38,8 +40,9 @@ export class VistaJiraComponent implements OnInit {
       alert('error, hay campos sin rellenar');
     }else{
       this.userJira = {
-    
+        
         user_id: parseInt(localStorage.getItem('id')),
+        id: parseInt(localStorage.getItem('id')),
         username: this.username,
         password: this.password,
         url: this.url,
@@ -71,7 +74,8 @@ export class VistaJiraComponent implements OnInit {
       project: this.project,
       component: this.component,
       issue: this.issue,
-      user_id: localStorage.getItem('id')
+      id: parseInt(localStorage.getItem('id')),
+      user_id: parseInt(localStorage.getItem('id'))
     }
     console.log("user a subir a la bbdd (put) " + this.userJira);
     this.editar=true;
@@ -96,6 +100,7 @@ export class VistaJiraComponent implements OnInit {
     
     this.api.comprobarLogin();
     this.obtenerInfoUserLoggeado();
+    console.log(parseInt(localStorage.getItem('id')));
 
     this.api.getUserJiraData().then((res: any) => {
       if (res !== null) {
