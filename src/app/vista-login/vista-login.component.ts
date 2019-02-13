@@ -15,8 +15,9 @@ export class VistaLoginComponent implements OnInit{
   valid: any;
   constructor(private api: ApiService, private router: Router) { }
   ngOnInit(){
-    this.api.comprobarLogin();
-    console.log(localStorage.getItem('rol'));
+    this.api.cerrarSesion();
+    // this.api.comprobarLogin();
+    // console.log(localStorage.getItem('rol'));
   }
 
   login() {

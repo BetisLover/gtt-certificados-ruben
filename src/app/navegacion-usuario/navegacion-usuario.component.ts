@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navegacion-usuario',
@@ -8,14 +9,16 @@ import { ApiService } from '../api.service';
 })
 export class NavegacionUsuarioComponent implements OnInit {
   isAdmin: boolean;
-  constructor(public api:ApiService) { }
+  constructor(public api:ApiService, public router:Router) { }
 
   ngOnInit() {
    
   }
 
   logout(){
-    this.api.cerrarSesion()
+    console.log("estoy en logout");
+    this.api.cerrarSesion();
+    
     }
 
 }

@@ -14,6 +14,9 @@ export class DetallesCertificadoComponent implements OnInit {
   constructor(public api: ApiService, private ruta: ActivatedRoute) { }
   //cargamos el certificado deseado
   ngOnInit() {
+    
+    this.api.comprobarLogin();
+
     this.id = Number(this.ruta.snapshot.paramMap.get('id'));
     console.log("estoy en el ts de detalles");
     console.log(this.id);

@@ -80,18 +80,10 @@ export class ApiService {
       this.router.navigate(['/certificados']);
     }
   }
-  //comprobamos si el usuario tiene permisos, y en caso contrario lo redireccionamos a la vista principal
-  comprobarRol(): boolean{
-    let rol=localStorage.getItem('rol');
-    if (rol!=='0'){
-      return true;
-    }
-    return false;
- 
-  }
+  
   //comprobamos mediante el jsonWebToken si el usuario está logueado y si no le devolvemos al login
   comprobarLogin(){
-    if(!localStorage.getItem('jwt')){
+    if(!localStorage.getItem('jwt')||localStorage.getItem('jwt')==='-1'){
       alert('permiso denegado');
       this.router.navigate(['/login']);
     }
@@ -99,8 +91,10 @@ export class ApiService {
 
   //eliminamos todas las variables de localstorage al cerrar sesión
   cerrarSesion(){
-    this.jwt=null;
+    this.jwt="-1";
     localStorage.clear();
+    console.log("borrando"+localStorage.getItem('jwt'));
+    
   }
 
   constructor(private http: HttpClient, private router: Router) { }

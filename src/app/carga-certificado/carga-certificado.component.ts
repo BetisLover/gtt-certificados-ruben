@@ -17,6 +17,7 @@ export class CargaCertificadoComponent implements OnInit {
   contact;
   constructor(private api: ApiService) { }
   ngOnInit() {
+    this.api.comprobarLogin();
   }
 
   //pillamos los datos del html
