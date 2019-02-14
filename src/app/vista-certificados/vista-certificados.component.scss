@@ -6,11 +6,14 @@
     
 
     .encabezado{
-        margin: 2vh;
+    margin: 2vh;
+    background-color: silver;
     display: grid;
     grid-template-columns: repeat(5,1fr);
+    text-align: center;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
       
         div{
             border: 1px solid black;
@@ -25,9 +28,10 @@
     }
     .boardCertificados{
         display: grid;
-        margin:2vh;
-        max-height: 500px;
-        
+       
+        max-height: 600px;
+        margin-left:2vh;
+        margin-right: 2vh;
         grid-template-columns: repeat(5,1fr);
         div{
             height: 3em;
@@ -35,4 +39,7 @@
             background: white;
             border: 1px solid black; 
         }
+    }
+    i{
+        cursor: pointer;
     }

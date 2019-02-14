@@ -8,11 +8,11 @@
   <p>Url</p>
   <input type="text" placeholder="url" [(ngModel)]="url" name="url" />
   <p>Proyecto</p>
-  <input type="text" placeholder="proyecto" [(ngModel)]="project" name="project">
+  <input type="text" value="SIT" readonly  [(ngModel)]="project" name="project">
   <p>componente</p>
-  <input type="text" placeholder="componente" [(ngModel)]="component" name="component">
+  <input type="text" value="Arquitectura" readonly  [(ngModel)]="component" name="component">
   <p>Issue</p>
-  <input type="text" placeholder="issue" [(ngModel)]="issue" name="issue">
+  <input type="text" readonly  value="explotación" [(ngModel)]="issue" name="issue">
   <input class="confirmar" type="submit" value="Guardar cambios" />
   <div *ngIf="error">{{error | json}}</div>
   <div *ngIf="valid">Guardado!</div>

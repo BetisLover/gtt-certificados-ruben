@@ -1,18 +1,18 @@
 
 <app-navegacion-usuario></app-navegacion-usuario>
-<h2>Detalles del certificado</h2>
+<h1>Detalles del certificado</h1>
 <div class="contenedor">
     <div class="datosCert">
-        <div>Alias: {{certificado.alias}}</div>
-        <div>Entidad emisora: {{certificado.entidad_emisora}}</div>
-        <div>Nº Serie: {{certificado.numero_de_serie}}</div>
-        <div>Subject: {{certificado.subject.split('CN=')[1].split(',')[0]}}</div>
-        <div>Fecha caducidad: {{certificado.caducidad}}</div>
-        <div>Id Orga: {{certificado.id_orga}}</div>
-        <div>Cliente: {{certificado.nombre_cliente}}</div>
-        <div>Repositorio: {{certificado.repositorio}}</div>
-        <div>Observaciones: {{certificado.observaciones}}</div>
-        <div>Lista Int: {{certificado.integration_list}}</div>
+        <div><p>Alias:</p> {{certificado.alias}}</div>
+        <div><p>Entidad emisora:</p> {{certificado.entidad_emisora}}</div>
+        <div><p>Nº Serie:</p> {{certificado.numero_de_serie}}</div>
+        <div><p>Subject:</p>{{certificado.subject.split('CN=')[1].split(',')[0]}}</div>
+        <div><p>Fecha caducidad:</p> {{certificado.caducidad}}</div>
+        <div><p>Id Orga:</p>{{certificado.id_orga}}</div>
+        <div><p>Cliente:</p> {{certificado.nombre_cliente}}</div>
+        <div><p>Repositorio:</p> {{certificado.repositorio}}</div>
+        <div><p>Observaciones:</p> {{certificado.observaciones}}</div>
+        <div><p>Lista Int:</p> {{certificado.integration_list}}</div>
        
 
     </div>

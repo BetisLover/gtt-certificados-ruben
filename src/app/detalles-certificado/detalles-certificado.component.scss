@@ -1,4 +1,4 @@
-h2{
+h1{
     text-align: center;
 }
 .contenedor{
@@ -17,12 +17,22 @@ input{
 }
 
 .datosCert{
+    text-align: center;
     align-content: center;
     background-color: whitesmoke;
     border: 1px solid black;
     padding: 3 em; 
+    border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
 }
 
 div{
     margin: 2em;
+}
+p{
+    text-decoration: underline;
+    color: #98CB00;
+    font-weight: bold;  
 }

@@ -51,7 +51,8 @@ export class VistaJiraComponent implements OnInit {
         project: this.project,
         component: this.component,
         url: this.url,
-        user_id: localStorage.getItem('id')
+        user_id: localStorage.getItem('id'),
+        issue: this.issue
       }
       console.log(this.jira);
       this.api.addJiraUser(this.jira).then((res:any)=>{
@@ -76,7 +77,8 @@ export class VistaJiraComponent implements OnInit {
         project: this.project,
         component: this.component,
         url: this.url,
-        user_id: localStorage.getItem('id')
+        user_id: localStorage.getItem('id'),
+        issue: this.issue
       }
       //console.log(this.jira);
       this.api.editJiraUser(this.jira).then((res: any) => {
@@ -101,10 +103,10 @@ export class VistaJiraComponent implements OnInit {
         this.JiraAccount=true;
         this.usernameJira=res.username;
         this.password  = res.password;
-        this.project =res.project;
+       // this.project =res.project; sustituidos por los valores por defecto
         this.component = res.component;
         this.url = res.url;
-        this.issue = res.issue;
+        //this.issue = res.issue;
       }
     })
 

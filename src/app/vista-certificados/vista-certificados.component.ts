@@ -49,7 +49,8 @@ export class VistaCertificadosComponent implements OnInit {
      aux_document.href = URL.createObjectURL(blob);
      aux_document.download = `${certificado.nombre_archivo}`;
      document.body.appendChild(aux_document);
-     aux_document.click()
+     aux_document.click();
+  
 
   }
 
