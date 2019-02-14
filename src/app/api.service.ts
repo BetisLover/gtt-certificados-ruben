@@ -21,7 +21,7 @@ export class ApiService {
   //control del registro por el backend
   register(username, password, email, role) {
     const body = { username, password, email, role };
-    console.log(body);
+   // console.log(body);
     return this.http.post('/api/users', body).toPromise();
 
   }
@@ -29,7 +29,7 @@ export class ApiService {
 
   login(username, password) {
     const body = { username, password };
-    console.log("user a loguear "+body.username+" pass:"+body.password);
+  //  console.log("user a loguear "+body.username+" pass:"+body.password);
     return this.http.post('/api/auth', body)
       .toPromise();
   }

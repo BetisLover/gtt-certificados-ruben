@@ -26,18 +26,18 @@ export class VistaLoginComponent implements OnInit{
       this.api.
         login(username.trim(), password.trim())
         .then((response:any) => {
-          console.log(response);
+         // console.log(response);
         if(response.status===400){
           this.error= response.error;
           this.username='';
           this.password='';
         }else{
           this.router.navigate(['/certificados']);
-        console.log("id a guardar: "+response.user_id);
+      //  console.log("id a guardar: "+response.user_id);
         localStorage.setItem('id',response.user_id);
         localStorage.setItem('jwt', response.jwt);
         localStorage.setItem('rol',response.role.toString());
-        console.log("rol de usuario: "+localStorage.getItem('rol'));
+       // console.log("rol de usuario: "+localStorage.getItem('rol'));
         }
         
         })

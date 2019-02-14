@@ -58,7 +58,7 @@ export class VistaJiraComponent implements OnInit {
       this.api.addJiraUser(this.jira).then((res:any)=>{
         this.JiraAccount=true;
       }).catch(err=>{
-        console.log('estoy en el catch del post');
+     //   console.log('estoy en el catch del post');
         console.log(err);
       })
     }

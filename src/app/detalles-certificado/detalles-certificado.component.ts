@@ -18,8 +18,8 @@ export class DetallesCertificadoComponent implements OnInit {
     this.api.comprobarLogin();
 
     this.id = Number(this.ruta.snapshot.paramMap.get('id'));
-    console.log("estoy en el ts de detalles");
-    console.log(this.id);
+    // console.log("estoy en el ts de detalles");
+    // console.log(this.id);
     this.api.getDetailsCertificate(this.id).then((res: Certificate) => {
       this.certificado = res;
     }).catch(err => {

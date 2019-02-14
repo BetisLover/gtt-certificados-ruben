@@ -13,7 +13,7 @@ export class VistaCertificadosComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    console.log(localStorage.getItem('jwt'));
+   // console.log(localStorage.getItem('jwt'));
     this.api.comprobarLogin();
     this.obtenerCertificados();
   

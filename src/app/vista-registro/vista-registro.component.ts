@@ -28,7 +28,7 @@ export class VistaRegistroComponent implements OnInit {
       this.api.
       register(username.trim(), password.trim(), email.trim(), this.role)
       .then(res =>{
-        console.log(res);
+       // console.log(res);
         
         this.valid = res;
       })
